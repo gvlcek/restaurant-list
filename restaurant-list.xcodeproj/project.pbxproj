@@ -24,6 +24,9 @@
 		DD6E19412935182500D23100 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD6E193F2935182500D23100 /* Model.xcdatamodeld */; };
 		DD6E1943293518EE00D23100 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E1942293518EE00D23100 /* CoreDataHelper.swift */; };
 		DD6E19452935190700D23100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E19442935190700D23100 /* Constants.swift */; };
+		DD6E19472935506800D23100 /* MainViewControllerPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E19462935506800D23100 /* MainViewControllerPresenterTests.swift */; };
+		DD6E19492935568500D23100 /* MainViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E19482935568500D23100 /* MainViewControllerTests.swift */; };
+		DD6E194B29355CAD00D23100 /* MainTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E194A29355CAD00D23100 /* MainTableViewCellTests.swift */; };
 		DDFC5E1429340B7400F4B8D3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC5E1329340B7400F4B8D3 /* MainTableViewCell.swift */; };
 		DDFC5E162934253B00F4B8D3 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC5E152934253B00F4B8D3 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
@@ -49,8 +52,6 @@
 		DD0D45052933D7C400F24C6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD0D450A2933D7C400F24C6D /* restaurant-listTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "restaurant-listTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0D450E2933D7C400F24C6D /* restaurant_listTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restaurant_listTests.swift; sourceTree = "<group>"; };
-		DD0D45182933D7C400F24C6D /* restaurant_listUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restaurant_listUITests.swift; sourceTree = "<group>"; };
-		DD0D451A2933D7C400F24C6D /* restaurant_listUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restaurant_listUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DD0D452D2933D8F300F24C6D /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		DD0D452F2933F9B600F24C6D /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		DD0D45312933FAAF00F24C6D /* MainViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerPresenter.swift; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		DD6E19402935182500D23100 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DD6E1942293518EE00D23100 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		DD6E19442935190700D23100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DD6E19462935506800D23100 /* MainViewControllerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerPresenterTests.swift; sourceTree = "<group>"; };
+		DD6E19482935568500D23100 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
+		DD6E194A29355CAD00D23100 /* MainTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCellTests.swift; sourceTree = "<group>"; };
 		DDFC5E1329340B7400F4B8D3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DDFC5E152934253B00F4B8D3 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,8 +141,9 @@
 		DD0D45172933D7C400F24C6D /* restaurant-listUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DD0D45182933D7C400F24C6D /* restaurant_listUITests.swift */,
-				DD0D451A2933D7C400F24C6D /* restaurant_listUITestsLaunchTests.swift */,
+				DD6E19482935568500D23100 /* MainViewControllerTests.swift */,
+				DD6E19462935506800D23100 /* MainViewControllerPresenterTests.swift */,
+				DD6E194A29355CAD00D23100 /* MainTableViewCellTests.swift */,
 			);
 			path = "restaurant-listUITests";
 			sourceTree = "<group>";
@@ -340,7 +345,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6E19472935506800D23100 /* MainViewControllerPresenterTests.swift in Sources */,
 				DD0D450F2933D7C400F24C6D /* restaurant_listTests.swift in Sources */,
+				DD6E194B29355CAD00D23100 /* MainTableViewCellTests.swift in Sources */,
+				DD6E19492935568500D23100 /* MainViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

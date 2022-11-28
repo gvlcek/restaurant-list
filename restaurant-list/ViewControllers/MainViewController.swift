@@ -82,7 +82,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol, UITableV
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return Constants.Constraints.mainTableViewCellHeight
     }
     
     // MARK: - MainTableViewCellDelegate
@@ -92,7 +92,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol, UITableV
         
         //After updating the database I only update the cell that changed the favorite status
         if let index = viewData.restaurants.firstIndex(where: { $0.uuid == uuid }) {
-            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+            tableView.reloadRows(at: [IndexPath(row: index, section: .zero)], with: .none)
         }
     }
 }

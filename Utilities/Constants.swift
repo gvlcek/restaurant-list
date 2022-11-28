@@ -16,6 +16,7 @@ struct Constants {
         static let trailingAnchor = CGFloat(-10)
         static let iconImageHeight = CGFloat(70)
         static let favoriteButtonHeight = CGFloat(25)
+        static let mainTableViewCellHeight = CGFloat(80)
     }
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainTableViewCellDelegate: NSObjectProtocol {
+protocol MainTableViewCellDelegate: AnyObject {
     func userDidSelectFavorite(uuid: String, isFavorite: Bool)
 }
 
@@ -114,7 +114,7 @@ class MainTableViewCell: UITableViewCell {
         favoriteButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
     }
     
-    @objc func buttonTapped(sender : UIButton) {
+    @objc func buttonTapped(_ sender : Any) {
         if let uuid = restaurant?.uuid {
             delegate?.userDidSelectFavorite(uuid: uuid, isFavorite: !isFavorite)
         }
