@@ -35,7 +35,7 @@ class MainViewController: UIViewController, MainViewControllerProtocol, UITableV
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         
-        title = "Restaurant List"
+        title = "MainView_title".localized()
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(tableView)

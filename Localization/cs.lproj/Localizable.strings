@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  restaurant-list
+
+  Created by Guadalupe Vlček on 28/11/2022.
+  
+*/
+
+// MARK: - MainViewController
+"MainView_title" = "Seznam restaurací";
