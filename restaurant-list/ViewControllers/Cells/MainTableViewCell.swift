@@ -19,7 +19,7 @@ class MainTableViewCell: UITableViewCell {
         didSet {
             nameLabel.text = restaurant?.name
             addressLabel.text = "\(restaurant?.address.street ?? ""), \(restaurant?.address.locality ?? ""), \(restaurant?.address.country ?? "")"
-            isFavorite ? favoriteImageView.setImage(UIImage(named: "filled-heart"), for: .normal) : favoriteImageView.setImage(UIImage(named: "empty-heart"), for: .normal)
+            isFavorite ? favoriteButton.setImage(UIImage(named: "filled-heart"), for: .normal) : favoriteButton.setImage(UIImage(named: "empty-heart"), for: .normal)
             if let icon = restaurant?.mainPhoto?.squareImage {
                 iconImageView.setImageFromString(stringUrl: icon)
             } else {
@@ -29,8 +29,9 @@ class MainTableViewCell: UITableViewCell {
         }
     }
     
-    let containerView: UIView = {
-        let view = UIView()
+    let containerView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true // this will make sure its children do not go out of the boundary
         return view
@@ -40,14 +41,13 @@ class MainTableViewCell: UITableViewCell {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill // image will never be strecthed vertially or horizontally
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
-        img.layer.cornerRadius = 35
+        img.layer.cornerRadius = Constants.Constraints.iconImageHeight / 2
         img.clipsToBounds = true
         return img
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -55,7 +55,6 @@ class MainTableViewCell: UITableViewCell {
     
     let addressLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor =  .secondaryLabel
         label.clipsToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -70,11 +69,11 @@ class MainTableViewCell: UITableViewCell {
         return label
     }()
     
-    let favoriteImageView: UIButton = {
+    let favoriteButton: UIButton = {
         let button = UIButton()
         button.contentMode = .scaleAspectFill // without this your image will shrink and looks ugly
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 13
+        button.layer.cornerRadius = Constants.Constraints.favoriteButtonHeight / 2
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
@@ -84,38 +83,35 @@ class MainTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         
+        containerView.addArrangedSubview(nameLabel)
+        containerView.addArrangedSubview(addressLabel)
+        containerView.addArrangedSubview(ratingLabel)
+        
         contentView.addSubview(iconImageView)
-        containerView.addSubview(nameLabel)
-        containerView.addSubview(addressLabel)
-        containerView.addSubview(ratingLabel)
         contentView.addSubview(containerView)
-        contentView.addSubview(favoriteImageView)
+        contentView.addSubview(favoriteButton)
         
         iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        iconImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        iconImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.Constraints.leadingAnchor).isActive = true
+        iconImageView.widthAnchor.constraint(equalToConstant: Constants.Constraints.iconImageHeight).isActive = true
+        iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor, multiplier: 1/1).isActive = true
         
-        containerView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        containerView.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: Constants.Constraints.leadingAnchor).isActive = true
         
-        nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         
-        addressLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
         addressLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        addressLabel.trailingAnchor.constraint(equalTo: favoriteImageView.leadingAnchor).isActive = true
+        addressLabel.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor).isActive = true
         
         ratingLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor).isActive = true
         ratingLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         
-        favoriteImageView.widthAnchor.constraint(equalToConstant: 26).isActive = true
-        favoriteImageView.heightAnchor.constraint(equalToConstant: 26).isActive = true
-        favoriteImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        favoriteImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        favoriteButton.widthAnchor.constraint(equalToConstant: Constants.Constraints.favoriteButtonHeight).isActive = true
+        favoriteButton.heightAnchor.constraint(equalTo: favoriteButton.widthAnchor, multiplier: 1/1).isActive = true
+        favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constants.Constraints.trailingAnchor).isActive = true
+        favoriteButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
     }
     
     @objc func buttonTapped(sender : UIButton) {

@@ -46,15 +46,7 @@ class CoreDataHelper {
     }
     
     private func deleteExistingRecord(uuid: String) {
-        var fetchingFavorite = [Favorite]()
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: Constants.coreDataEntity)
-        
-        do {
-            fetchingFavorite = try context.fetch(fetchRequest) as! [Favorite]
-        } catch {
-            print("Error while fetching the image")
-        }
-        
+        let fetchingFavorite = fetchFavorites()
         if let deleteFetch = fetchingFavorite.first(where: { $0.uuid == uuid }) {
             context.delete(deleteFetch)
         }
