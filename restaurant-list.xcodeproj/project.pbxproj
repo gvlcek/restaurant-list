@@ -71,6 +71,7 @@
 		DD6E19462935506800D23100 /* MainViewControllerPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerPresenterTests.swift; sourceTree = "<group>"; };
 		DD6E19482935568500D23100 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 		DD6E194A29355CAD00D23100 /* MainTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCellTests.swift; sourceTree = "<group>"; };
+		DD6E194C293564EA00D23100 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DDFC5E1329340B7400F4B8D3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DDFC5E152934253B00F4B8D3 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,13 +97,13 @@
 		DD0D44EB2933D7C200F24C6D = {
 			isa = PBXGroup;
 			children = (
+				DD6E194C293564EA00D23100 /* README.md */,
 				DD0D44F62933D7C200F24C6D /* restaurant-list */,
 				DD0D452B2933D89D00F24C6D /* Model */,
 				DD0D45332933FEA600F24C6D /* WebServices */,
 				DD0D45362934017400F24C6D /* Utilities */,
 				DD6E19312935162000D23100 /* Localization */,
 				DD0D450D2933D7C400F24C6D /* restaurant-listTests */,
-				DD0D45172933D7C400F24C6D /* restaurant-listUITests */,
 				DD0D44F52933D7C200F24C6D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,18 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				DD0D450E2933D7C400F24C6D /* restaurant_listTests.swift */,
-			);
-			path = "restaurant-listTests";
-			sourceTree = "<group>";
-		};
-		DD0D45172933D7C400F24C6D /* restaurant-listUITests */ = {
-			isa = PBXGroup;
-			children = (
 				DD6E19482935568500D23100 /* MainViewControllerTests.swift */,
 				DD6E19462935506800D23100 /* MainViewControllerPresenterTests.swift */,
 				DD6E194A29355CAD00D23100 /* MainTableViewCellTests.swift */,
 			);
-			path = "restaurant-listUITests";
+			path = "restaurant-listTests";
 			sourceTree = "<group>";
 		};
 		DD0D45272933D83F00F24C6D /* Assets */ = {
