@@ -22,15 +22,29 @@ protocol MainViewControllerProtocol: AnyObject {
 class MainViewControllerPresenter: MainViewControllerPresenterProtocol {
     weak var view: MainViewControllerProtocol?
     private let webService: WebServices
+    private let coreDataHelper: CoreDataHelper
 
-    init(webService: WebServices) {
+    init(webService: WebServices, coreDataHelper: CoreDataHelper) {
         self.webService = webService
+        self.coreDataHelper = coreDataHelper
     }
 
     func fetchRestaurants() {
         webService.fetchResultsFromApi(completionHandler: { [weak self] result in
             self?.view?.loadRestaurants(restaurants: result)
         })
+    }
+    
+    func updateFavorite(uuid: String, isFavorite: Bool) {
+        coreDataHelper.saveFavorite(uuid: uuid, isFavorite: isFavorite)
+    }
+    
+    func getFavoriteStatus(uuid: String) -> Bool {
+        if let status = coreDataHelper.getFavoriteStatus(uuid: uuid) {
+            return status.isFavorite
+        } else {
+            return false
+        }
     }
 }
 

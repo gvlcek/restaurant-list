@@ -21,6 +21,9 @@
 		DD0D45382934018200F24C6D /* Identificable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0D45372934018100F24C6D /* Identificable.swift */; };
 		DD6E19342935163800D23100 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD6E19362935163800D23100 /* Localizable.strings */; };
 		DD6E193B2935169300D23100 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E193A2935169300D23100 /* StringExtension.swift */; };
+		DD6E19412935182500D23100 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DD6E193F2935182500D23100 /* Model.xcdatamodeld */; };
+		DD6E1943293518EE00D23100 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E1942293518EE00D23100 /* CoreDataHelper.swift */; };
+		DD6E19452935190700D23100 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6E19442935190700D23100 /* Constants.swift */; };
 		DDFC5E1429340B7400F4B8D3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC5E1329340B7400F4B8D3 /* MainTableViewCell.swift */; };
 		DDFC5E162934253B00F4B8D3 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC5E152934253B00F4B8D3 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +64,9 @@
 		DD6E193C2935172800D23100 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
 		DD6E193D2935172800D23100 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DD6E193E2935172800D23100 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD6E19402935182500D23100 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DD6E1942293518EE00D23100 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		DD6E19442935190700D23100 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DDFC5E1329340B7400F4B8D3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DDFC5E152934253B00F4B8D3 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +118,7 @@
 				DD0D44F72933D7C200F24C6D /* AppDelegate.swift */,
 				DD0D44F92933D7C200F24C6D /* SceneDelegate.swift */,
 				DD0D45052933D7C400F24C6D /* Info.plist */,
+				DD6E193F2935182500D23100 /* Model.xcdatamodeld */,
 				DD0D45272933D83F00F24C6D /* Assets */,
 				DD0D45282933D85600F24C6D /* Storyboards & nibs */,
 				DD0D45292933D87100F24C6D /* ViewControllers */,
@@ -192,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				DD0D45372934018100F24C6D /* Identificable.swift */,
+				DD6E1942293518EE00D23100 /* CoreDataHelper.swift */,
+				DD6E19442935190700D23100 /* Constants.swift */,
 				DDFC5E152934253B00F4B8D3 /* UIImageViewExtension.swift */,
 				DD6E193A2935169300D23100 /* StringExtension.swift */,
 			);
@@ -318,9 +327,12 @@
 				DD0D45352933FEC400F24C6D /* WebServices.swift in Sources */,
 				DD0D45322933FAAF00F24C6D /* MainViewControllerPresenter.swift in Sources */,
 				DD0D44FC2933D7C200F24C6D /* MainViewController.swift in Sources */,
+				DD6E1943293518EE00D23100 /* CoreDataHelper.swift in Sources */,
 				DD0D44F82933D7C200F24C6D /* AppDelegate.swift in Sources */,
 				DD6E193B2935169300D23100 /* StringExtension.swift in Sources */,
+				DD6E19452935190700D23100 /* Constants.swift in Sources */,
 				DD0D44FA2933D7C200F24C6D /* SceneDelegate.swift in Sources */,
+				DD6E19412935182500D23100 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +643,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DD6E193F2935182500D23100 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DD6E19402935182500D23100 /* Model.xcdatamodel */,
+			);
+			currentVersion = DD6E19402935182500D23100 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DD0D44EC2933D7C200F24C6D /* Project object */;
 }

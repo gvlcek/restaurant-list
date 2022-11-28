@@ -7,12 +7,19 @@
 
 import UIKit
 
+protocol MainTableViewCellDelegate: NSObjectProtocol {
+    func userDidSelectFavorite(uuid: String, isFavorite: Bool)
+}
+
 class MainTableViewCell: UITableViewCell {
+    weak var delegate: MainTableViewCellDelegate?
+    var isFavorite: Bool = false
+    
     var restaurant: Restaurant? {
         didSet {
             nameLabel.text = restaurant?.name
             addressLabel.text = "\(restaurant?.address.street ?? ""), \(restaurant?.address.locality ?? ""), \(restaurant?.address.country ?? "")"
-            favoriteImageView.setImage(UIImage(named: "empty-heart"), for: .normal)
+            isFavorite ? favoriteImageView.setImage(UIImage(named: "filled-heart"), for: .normal) : favoriteImageView.setImage(UIImage(named: "empty-heart"), for: .normal)
             if let icon = restaurant?.mainPhoto?.squareImage {
                 iconImageView.setImageFromString(stringUrl: icon)
             } else {
@@ -112,7 +119,9 @@ class MainTableViewCell: UITableViewCell {
     }
     
     @objc func buttonTapped(sender : UIButton) {
-        print("action")
+        if let uuid = restaurant?.uuid {
+            delegate?.userDidSelectFavorite(uuid: uuid, isFavorite: !isFavorite)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

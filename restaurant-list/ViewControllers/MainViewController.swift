@@ -9,9 +9,11 @@ import UIKit
 
 protocol MainViewControllerPresenterProtocol {
     func fetchRestaurants()
+    func updateFavorite(uuid: String, isFavorite: Bool)
+    func getFavoriteStatus(uuid: String) -> Bool
 }
 
-class MainViewController: UIViewController, MainViewControllerProtocol, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, MainViewControllerProtocol, UITableViewDataSource, UITableViewDelegate, MainTableViewCellDelegate {
     private var viewData = MainViewControllerData()
     private var presenter: MainViewControllerPresenterProtocol
     private let tableView = UITableView()
@@ -71,7 +73,9 @@ class MainViewController: UIViewController, MainViewControllerProtocol, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
+        cell.isFavorite = presenter.getFavoriteStatus(uuid: viewData.restaurants[indexPath.row].uuid)
         cell.restaurant = viewData.restaurants[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -79,6 +83,17 @@ class MainViewController: UIViewController, MainViewControllerProtocol, UITableV
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    // MARK: - MainTableViewCellDelegate
+    
+    func userDidSelectFavorite(uuid: String, isFavorite: Bool) {
+        presenter.updateFavorite(uuid: uuid, isFavorite: isFavorite)
+        
+        //After updating the database I only update the cell that changed the favorite status
+        if let index = viewData.restaurants.firstIndex(where: { $0.uuid == uuid }) {
+            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        }
     }
 }
 

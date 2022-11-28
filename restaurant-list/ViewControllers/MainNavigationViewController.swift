@@ -13,7 +13,7 @@ class MainNavigationViewController: UINavigationController {
         super.viewDidLoad()
         
         // The main idea is to rely on dependency injection instead of singletons.
-        let presenter = MainViewControllerPresenter(webService: .init())
+        let presenter = MainViewControllerPresenter(webService: .init(), coreDataHelper: .init())
         let mainViewController = MainViewController(presenter: presenter)
         presenter.view = mainViewController
         pushViewController(mainViewController, animated: false)
