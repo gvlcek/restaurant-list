@@ -28,6 +28,13 @@ class ImportedMapsPageTableViewCellTests: XCTestCase {
         XCTAssertEqual(delegate.isFavoriteSelected, true)
     }
 
+    func test_prepareForReuseClearsImage() {
+        // Simulate an image already set from a previous restaurant
+        subject.iconImageView.image = UIImage()
+        subject.prepareForReuse()
+        XCTAssertNil(subject.iconImageView.image)
+    }
+
     private func getTestViewData() -> MainViewControllerData {
         let restaurant = Restaurant(name: "Test", uuid: "123312", servesCuisine: "arg", priceRange: 122, currenciesAccepted: "USD", address: Address(street: "yada yada", postalCode: "12123", locality: "arg", country: "arg"), mainPhoto: nil, aggregateRatings: AggregateRatings(thefork: TheforkRatings(ratingValue: 10, reviewCount: 10), tripadvisor: TripadvisorRatings(ratingValue: 10, reviewCount: 10)), bestOffer: BestOffer(name: "122", label: "offer"))
         return MainViewControllerData(restaurants: [restaurant])
