@@ -21,8 +21,10 @@ class MainTableViewCell: UITableViewCell {
             addressLabel.text = "\(restaurant?.address.street ?? ""), \(restaurant?.address.locality ?? ""), \(restaurant?.address.country ?? "")"
             isFavorite ? favoriteButton.setImage(UIImage(named: "filled-heart"), for: .normal) : favoriteButton.setImage(UIImage(named: "empty-heart"), for: .normal)
             if let icon = restaurant?.mainPhoto?.squareImage {
+                iconImageView.backgroundColor = nil
                 iconImageView.setImageFromString(stringUrl: icon)
             } else {
+                iconImageView.image = nil
                 iconImageView.backgroundColor = .secondarySystemFill
             }
             ratingLabel.text = "The fork: \(restaurant?.aggregateRatings.thefork.ratingValue ?? 0) - TripAdvisor: \(restaurant?.aggregateRatings.tripadvisor.ratingValue ?? 0)"
@@ -112,6 +114,12 @@ class MainTableViewCell: UITableViewCell {
         favoriteButton.heightAnchor.constraint(equalTo: favoriteButton.widthAnchor, multiplier: 1/1).isActive = true
         favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Constants.Constraints.trailingAnchor).isActive = true
         favoriteButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        iconImageView.image = nil
+        iconImageView.backgroundColor = .secondarySystemFill
     }
     
     @objc func buttonTapped(_ sender : Any) {
