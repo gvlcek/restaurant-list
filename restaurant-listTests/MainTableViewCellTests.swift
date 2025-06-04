@@ -26,6 +26,8 @@ class ImportedMapsPageTableViewCellTests: XCTestCase {
         
         subject.buttonTapped(subject as Any)
         XCTAssertEqual(delegate.isFavoriteSelected, true)
+        XCTAssertEqual(delegate.lastUUID, viewData.restaurants.first?.uuid)
+        XCTAssertEqual(delegate.lastIsFavorite, true)
     }
 
     private func getTestViewData() -> MainViewControllerData {
@@ -36,8 +38,13 @@ class ImportedMapsPageTableViewCellTests: XCTestCase {
 
 fileprivate class MockMainTableViewCellDelegate: MainTableViewCellDelegate {
     var isFavoriteSelected = false
+    var lastUUID: String?
+    var lastIsFavorite: Bool?
+
     func userDidSelectFavorite(uuid: String, isFavorite: Bool) {
         isFavoriteSelected = true
+        lastUUID = uuid
+        lastIsFavorite = isFavorite
     }
 }
 
