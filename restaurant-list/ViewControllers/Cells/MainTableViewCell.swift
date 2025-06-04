@@ -41,7 +41,7 @@ class MainTableViewCell: UITableViewCell {
     
     let iconImageView: UIImageView = {
         let img = UIImageView()
-        img.contentMode = .scaleAspectFill // image will never be strecthed vertially or horizontally
+        img.contentMode = .scaleAspectFill // image will never be stretched vertically or horizontally
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
         img.layer.cornerRadius = Constants.Constraints.iconImageHeight / 2
         img.clipsToBounds = true
